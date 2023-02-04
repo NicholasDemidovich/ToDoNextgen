@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
+from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from .models import *
 from .serializers import *
@@ -66,12 +67,6 @@ class ListStory(generics.ListAPIView):
     queryset = Story.objects.all()
     serializer_class = StorySerializer
 
-
-@api_view(['POST'])
-def moveStory(story, deskId, columnId):
-    desk = Desk.objects.get(pk=deskId)
-    column = desk.objects.get(pk=columnId)
-    column.Strories
 
 # Task
 
